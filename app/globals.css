@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #0b0f19;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Clean scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Audio waveform animation */
+@keyframes wave-pulse {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+.animate-wave-1 { animation: wave-pulse 1.2s ease-in-out infinite; }
+.animate-wave-2 { animation: wave-pulse 0.9s ease-in-out infinite 0.15s; }
+.animate-wave-3 { animation: wave-pulse 1.4s ease-in-out infinite 0.3s; }
+.animate-wave-4 { animation: wave-pulse 1.0s ease-in-out infinite 0.1s; }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}

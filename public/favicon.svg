@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="fathomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="50%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Background with rounded corners -->
+  <rect width="64" height="64" rx="16" fill="url(#fathomGrad)" />
+  <!-- Fathom Notetaker Sparkle / Audio wave symbol -->
+  <g filter="url(#shadow)">
+    <!-- Central stylized F / soundwave -->
+    <path d="M22 18C22 16.8954 22.8954 16 24 16H42C43.1046 16 44 16.8954 44 18V22C44 23.1046 43.1046 24 42 24H30V28H39C40.1046 28 41 28.8954 41 30V34C41 35.1046 40.1046 36 39 36H30V46C30 47.1046 29.1046 48 28 48H24C22.8954 48 22 47.1046 22 46V18Z" fill="white" />
+    <!-- Audio wave dot / sparkle -->
+    <circle cx="44" cy="42" r="4" fill="#60A5FA" />
+  </g>
+</svg>

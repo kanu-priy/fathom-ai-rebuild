@@ -6,9 +6,10 @@ import { Search, Video, Calendar, Sparkles } from 'lucide-react';
 interface NavbarProps {
   onOpenSearch: () => void;
   onOpenLiveRecorder: () => void;
+  onOpenWalkthrough?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch, onOpenLiveRecorder }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch, onOpenLiveRecorder, onOpenWalkthrough }) => {
   return (
     <header className="h-14 shrink-0 border-b border-gray-800/80 bg-[#0f172a] px-5 flex items-center justify-between z-30">
       {/* Logo */}
@@ -26,6 +27,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch, onOpenLiveRecorder
 
       {/* Right Controls */}
       <div className="flex items-center gap-3">
+        {/* AI Voice Walkthrough Tour */}
+        {onOpenWalkthrough && (
+          <button
+            onClick={onOpenWalkthrough}
+            className="flex items-center gap-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all shadow-md shadow-purple-600/20"
+          >
+            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+            <span>AI Demo Tour</span>
+          </button>
+        )}
+
         {/* Search */}
         <button
           onClick={onOpenSearch}

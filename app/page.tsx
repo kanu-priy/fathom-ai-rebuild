@@ -13,6 +13,7 @@ import { ClipsModal } from './components/ClipsModal';
 import { AnalyticsView } from './components/AnalyticsView';
 import { LiveRecorderModal } from './components/LiveRecorderModal';
 import { GlobalSearchModal } from './components/GlobalSearchModal';
+import { WalkthroughModal } from './components/WalkthroughModal';
 import { SAMPLE_MEETINGS, Meeting, ActionItem, Clip } from './data/sampleMeetings';
 import { FileText, Mic, CheckSquare, MessageSquare, Share2, Download, Clock, Users } from 'lucide-react';
 
@@ -27,6 +28,7 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showRecorder, setShowRecorder] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showWalkthrough, setShowWalkthrough] = useState(false);
 
   const meeting = meetings.find(m => m.id === selectedId) || meetings[0];
   const allActions = meetings.reduce((n, m) => n + m.actionItems.length, 0);
@@ -194,7 +196,11 @@ export default function Home() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-[#0b0f19]">
-      <Navbar onOpenSearch={() => setShowSearch(true)} onOpenLiveRecorder={() => setShowRecorder(true)} />
+      <Navbar
+        onOpenSearch={() => setShowSearch(true)}
+        onOpenLiveRecorder={() => setShowRecorder(true)}
+        onOpenWalkthrough={() => setShowWalkthrough(true)}
+      />
 
       <div className="flex-1 flex min-h-0 overflow-hidden">
         <Sidebar
@@ -215,6 +221,7 @@ export default function Home() {
 
       <LiveRecorderModal isOpen={showRecorder} onClose={() => setShowRecorder(false)} onSaveNewMeeting={saveNewMeeting} />
       <GlobalSearchModal isOpen={showSearch} onClose={() => setShowSearch(false)} meetings={meetings} onSelectSearchResult={searchSelect} />
+      <WalkthroughModal isOpen={showWalkthrough} onClose={() => setShowWalkthrough(false)} />
     </div>
   );
 }

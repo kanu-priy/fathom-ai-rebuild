@@ -69,3 +69,11 @@ export const sounds = {
   // Notification bell for new transcript lines
   notify: () => playTone(1047, 0.1, 0.08, 'sine'),
 };
+
+export function playChimeSound() {
+  sounds.highlight();
+}
+
+export function playClickSound() {
+  sounds.click();
+}

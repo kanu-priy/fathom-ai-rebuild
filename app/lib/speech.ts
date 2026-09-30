@@ -105,3 +105,11 @@ export function speakTranscriptLine(
     console.error('Speech synthesis error:', err);
   }
 }
+
+export function cancelSpeech() {
+  stopSpeaking();
+}
+
+export function speakText(text: string, speakerId: string = 'spk-1', onEnd?: () => void) {
+  speakTranscriptLine(text, speakerId, 1.0, onEnd);
+}
